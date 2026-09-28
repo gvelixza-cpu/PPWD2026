@@ -1,39 +1,24 @@
-/* =========================
-   RESET & VARIABLES
-   ========================= */
+/* Reset & Variables */
 
 * {
     margin: 0;
-    padding: 0; 
+    padding: 0;
     box-sizing: border-box;
 }
 
 :root {
-    --primary: #8b6f56;
-    --dark: #4a382c;
-    --light: #f8f3ea;
-    --gray: #9b8b7b;
-    --beige: #e7dcc8;
-    --white: #fffdf8;
+    --primary: #2563eb;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --gray: #94a3b8;
 }
-
-
-/* =========================
-   BODY
-   ========================= */
 
 body {
     font-family: 'Segoe UI', sans-serif;
     background: var(--light);
     color: var(--dark);
     line-height: 1.6;
-    transition: background 0.3s, color 0.3s;
 }
-
-
-/* =========================
-   CONTAINER
-   ========================= */
 
 .container {
     max-width: 1200px;
@@ -41,14 +26,11 @@ body {
     padding: 0 20px;
 }
 
-
-/* =========================
-   NAVIGATION
-   ========================= */
+/* Navigation */
 
 nav {
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(74, 56, 44, 0.10);
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
     top: 0;
@@ -62,17 +44,10 @@ nav .container {
     padding: 15px 20px;
 }
 
-.logo {
-    color: var(--dark);
-    font-weight: 700;
-    font-size: 20px;
-}
-
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 25px;
-    align-items: center;
+    gap: 30px;
 }
 
 .nav-links a {
@@ -87,18 +62,11 @@ nav .container {
     color: var(--primary);
 }
 
-
-/* =========================
-   HERO SECTION - HOME
-   ========================= */
+/* Hero Section */
 
 .hero {
     padding: 150px 0 100px;
-    background: linear-gradient(
-        135deg,
-        #f8f3ea 0%,
-        #e7dcc8 100%
-    );
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -107,23 +75,11 @@ nav .container {
 .hero-content h1 {
     font-size: 48px;
     margin-bottom: 20px;
-    color: var(--dark);
 }
 
 .hero-content span {
     color: var(--primary);
 }
-
-.hero-content p {
-    color: var(--gray);
-    margin-bottom: 25px;
-    font-size: 18px;
-}
-
-
-/* =========================
-   BUTTON
-   ========================= */
 
 .btn {
     display: inline-block;
@@ -133,54 +89,43 @@ nav .container {
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    border: none;
-    cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(139, 111, 86, 0.3);
+    box-shadow: 0 10px 20px rgba(37,99,235,0.3);
 }
 
-
-/* =========================
-   PROJECTS
-   ========================= */
+/* Projects */
 
 .projects {
     padding: 80px 0;
-    background: var(--white);
+    background: white;
 }
 
 .projects h2 {
     text-align: center;
     font-size: 36px;
     margin-bottom: 40px;
-    color: var(--dark);
 }
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(300px, 1fr)
-    );
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
 .project-card {
     background: var(--light);
-    border: 1px solid var(--beige);
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s;
     cursor: pointer;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(74, 56, 44, 0.12);
 }
 
 .project-card img {
@@ -190,312 +135,11 @@ nav .container {
     border-radius: 8px;
 }
 
-.project-card h3 {
-    margin-top: 15px;
-    color: var(--dark);
-}
-
-.project-card p {
-    color: var(--gray);
-    margin-top: 5px;
-}
-
-
-/* =========================
-   ABOUT PAGE
-   ========================= */
-
-.about {
-    padding: 150px 0 100px;
-    background: var(--light);
-    min-height: 100vh;
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 50px;
-    align-items: center;
-}
-
-.about-text h1 {
-    font-size: 48px;
-    margin-bottom: 25px;
-    color: var(--dark);
-}
-
-.about-text p {
-    margin-bottom: 18px;
-    color: var(--gray);
-}
-
-.about-card {
-    background: var(--white);
-    border: 1px solid var(--beige);
-    border-radius: 15px;
-    padding: 35px;
-    box-shadow: 0 10px 25px rgba(74, 56, 44, 0.08);
-}
-
-.about-card h2 {
-    margin-bottom: 20px;
-    color: var(--dark);
-}
-
-.about-card ul {
-    list-style: none;
-}
-
-.about-card li {
-    background: var(--beige);
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    border-radius: 8px;
-    color: var(--dark);
-}
-
-
-/* =========================
-   CONTACT PAGE
-   ========================= */
-
-.contact {
-    padding: 150px 0 100px;
-    background: var(--light);
-    min-height: 100vh;
-}
-
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-}
-
-.contact-info h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: var(--dark);
-}
-
-.contact-info > p {
-    color: var(--gray);
-    margin-bottom: 30px;
-}
-
-.contact-item {
-    margin-bottom: 20px;
-}
-
-.contact-item h3 {
-    color: var(--primary);
-    margin-bottom: 3px;
-}
-
-.contact-item p {
-    color: var(--gray);
-}
-
-
-/* =========================
-   CONTACT FORM
-   ========================= */
-
-.contact-form {
-    background: var(--white);
-    border: 1px solid var(--beige);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 10px 25px rgba(74, 56, 44, 0.08);
-
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.contact-form label {
-    color: var(--dark);
-    font-weight: 600;
-    margin-top: 5px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--beige);
-    border-radius: 8px;
-    background: var(--light);
-    color: var(--dark);
-    font-family: inherit;
-    font-size: 15px;
-    outline: none;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: var(--primary);
-}
-
-.contact-form textarea {
-    resize: vertical;
-}
-
-#form-message {
-    color: var(--primary);
-    font-weight: 500;
-}
-
-
-/* =========================
-   DARK MODE
-   ========================= */
-
-body.dark-mode {
-    --primary: #c09a78;
-    --dark: #f3e9dc;
-    --light: #2b2521;
-    --gray: #c2b5a8;
-    --beige: #4a3f37;
-    --white: #352d28;
-}
-
-
-/* Navigation Dark Mode */
-
-body.dark-mode nav {
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-}
-
-
-/* Home Dark Mode */
-
-body.dark-mode .hero {
-    background: linear-gradient(
-        135deg,
-        #2b2521 0%,
-        #3d332c 100%
-    );
-}
-
-body.dark-mode .projects {
-    background: #302924;
-}
-
-
-/* Project Card Dark Mode */
-
-body.dark-mode .project-card {
-    background: var(--white);
-    border-color: var(--beige);
-}
-
-
-/* About Dark Mode */
-
-body.dark-mode .about {
-    background: var(--light);
-}
-
-body.dark-mode .about-card {
-    background: var(--white);
-}
-
-
-/* Contact Dark Mode */
-
-body.dark-mode .contact {
-    background: var(--light);
-}
-
-body.dark-mode .contact-form {
-    background: var(--white);
-}
-
-body.dark-mode .contact-form input,
-body.dark-mode .contact-form textarea {
-    background: var(--light);
-}
-
-
-/* Footer Dark Mode */
-
-body.dark-mode footer {
-    background: #211c19;
-}
-
-
-/* =========================
-   DARK MODE BUTTON
-   ========================= */
-
-.dark-mode-btn {
-    border: none;
-    background: var(--beige);
-    color: var(--dark);
-    padding: 8px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.dark-mode-btn:hover {
-    background: var(--primary);
-    color: white;
-}
-
-
-/* =========================
-   FOOTER
-   ========================= */
+/* Footer */
 
 footer {
     background: var(--dark);
-    color: var(--light);
+    color: white;
     text-align: center;
     padding: 30px;
-}
-
-
-/* =========================
-   RESPONSIVE
-   ========================= */
-
-@media (max-width: 768px) {
-
-    nav .container {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .nav-links {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .hero {
-        padding-top: 180px;
-    }
-
-    .hero-content h1 {
-        font-size: 38px;
-    }
-
-    .about-content,
-    .contact-content {
-        grid-template-columns: 1fr;
-    }
-
-    .about-text h1,
-    .contact-info h1 {
-        font-size: 38px;
-    }
-
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
 }
