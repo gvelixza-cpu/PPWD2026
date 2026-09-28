@@ -8,7 +8,7 @@ if (typingText) {
     let nameIndex = 0;
 
     let charIndex = 0;
-    let isDeleting = false;
+    let isDeleting = false; 
 
     function typeEffect() {
         const currentName = names[nameIndex];
