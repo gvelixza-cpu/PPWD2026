@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact - Portofolio Velixza</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigasi -->
+    <nav>
+        <div class="container">
+
+            <div class="logo">
+                MyPortofolio
+            </div>
+
+            <ul class="nav-links">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="contact.html" class="active">Contact</a>
+                </li>
+
+                <li>
+                    <button id="dark-mode-btn" class="dark-mode-btn">
+                        🌙 Dark Mode
+                    </button>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- Contact Section -->
+    <section class="contact">
+
+        <div class="container">
+
+            <div class="contact-content">
+
+                <!-- Informasi Kontak -->
+                <div class="contact-info">
+
+                    <h1>Hubungi Saya</h1>
+
+                    <p>
+                        Jika kamu ingin berkenalan, berdiskusi,
+                        atau memiliki pertanyaan, silakan
+                        hubungi saya melalui informasi di bawah ini.
+                    </p>
+
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p>velixza@example.com</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>Instagram</h3>
+                        <p>@velixza</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>Lokasi</h3>
+                        <p>Indonesia</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Form Kontak -->
+                <form class="contact-form" id="contactForm">
+
+                    <label for="name">Nama</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Masukkan nama"
+                    >
+
+
+                    <label for="email">Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Masukkan email"
+                    >
+
+
+                    <label for="message">Pesan</label>
+
+                    <textarea
+                        id="message"
+                        rows="5"
+                        placeholder="Tulis pesan kamu..."
+                    ></textarea>
+
+
+                    <button type="submit" class="btn">
+                        Kirim Pesan
+                    </button>
+
+                    <p id="form-message"></p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 MyPortofolio</p>
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
