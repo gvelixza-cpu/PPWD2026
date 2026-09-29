@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>password strenght checker</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f1ea;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #5c4033;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #5c4033;
+        }
+
+        .password-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .password-box input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #bbb;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .password-box button {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #5c4033;
+            color: white;
+            cursor: pointer;
+        }
+
+        .password-box button:hover {
+            background-color: #3f2b22;
+        }
+
+        .strength-text {
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0 10px;
+        }
+
+        .strength-bar {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 25px;
+        }
+
+        .bar {
+            height: 12px;
+            flex: 1;
+            background-color: #ddd;
+            border-radius: 10px;
+        }
+
+        .active-weak {
+            background-color: #e74c3c;
+        }
+
+        .active-medium {
+            background-color: #f1c40f;
+        }
+
+        .active-strong {
+            background-color: #2ecc71;
+        }
+
+        .criteria {
+            list-style: none;
+        }
+
+        .criteria li {
+            padding: 10px;
+            margin-bottom: 8px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        .criteria .valid {
+            color: #27ae60;
+            background-color: #eafaf1;
+        }
+
+        .criteria .invalid {
+            color: #c0392b;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                margin: 20px auto;
+                padding: 15px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .password-box {
+                flex-direction: column;
+            }
+
+            .password-box button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>password strength checker</h1>
+        <p>Nama: Velixza Gracia Elyuz</p>
+        <p>NIM: H1101251053</p>
+        <p>Prodi: Sistem Informasi</p>
+    </header>
+    <main>
+        <section>
+            <h2>Cek kekuatan password</h2>
+            <div class="password-box">
+                <input
+                    type="password"
+                    id="password_H1101251053"
+                    placeholder="Masukkan password"
+                >
+
+                <button id="lihat_H1101251053">
+                    Lihat
+                </button>
+            </div>
+
+            <p class="strength-text" id="strength_H1101251053">
+                Belum ada password
+            </p>
+
+            <div class="strength-bar">
+                <div class="bar" id="bar1_H1101251053"></div>
+                <div class="bar" id="bar2_H1101251053"></div>
+                <div class="bar" id="bar3_H1101251053"></div>
+            </div>
+
+            <ul class="criteria">
+                <li id="length_H1101251053">
+                     minimal 8 karakter
+                </li>
+
+                <li id="number_H1101251053">
+                     mengandung angka
+                </li>
+
+                <li id="symbol_H1101251053">
+                     mengandung simbol
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>UTS pemrograman web dasar</p>
+    </footer>
+
+
+    <script>
+
+        const password_H1101251053 =
+            document.getElementById("password_H1101251053");
+        const strength_H1101251053 =
+            document.getElementById("strength_H1101251053");
+        const bar1_H1101251053 =
+            document.getElementById("bar1_H1101251053");
+        const bar2_H1101251053 =
+            document.getElementById("bar2_H1101251053");
+        const bar3_H1101251053 =
+            document.getElementById("bar3_H1101251053");
+        const length_H1101251053 =
+            document.getElementById("length_H1101251053");
+        const number_H1101251053 =
+            document.getElementById("number_H1101251053");
+        const symbol_H1101251053 =
+            document.getElementById("symbol_H1101251053");
+        const lihat_H1101251053 =
+            document.getElementById("lihat_H1101251053");
+
+
+    //cek pw
+        password_H1101251053.addEventListener("input", function () {
+
+            const password = password_H1101251053.value;
+            const cukupPanjang = password.length >= 8;
+            const adaAngka = /[0-9]/.test(password);
+            const adaSimbol = /[^A-Za-z0-9]/.test(password);
+
+
+            //ubah status valid/invalid
+            if (cukupPanjang) {
+                length_H1101251053.classList.add("valid");
+                length_H1101251053.innerHTML =
+                    "ok minimal 8 karakter";
+            } else {
+                length_H1101251053.classList.remove("valid");
+                length_H1101251053.innerHTML =
+                    " minimal 8 karakter";
+            }
+
+
+            if (adaAngka) {
+                number_H1101251053.classList.add("valid");
+                number_H1101251053.innerHTML =
+                    "ok mengandung angka";
+            } else {
+                number_H1101251053.classList.remove("valid");
+                number_H1101251053.innerHTML =
+                    " mengandung angka";
+            }
+
+
+            if (adaSimbol) {
+                symbol_H1101251053.classList.add("valid");
+                symbol_H1101251053.innerHTML =
+                    "ok mengandung simbol";
+            } else {
+                symbol_H1101251053.classList.remove("valid");
+                symbol_H1101251053.innerHTML =
+                    " mengandung simbol";
+            }
+
+
+            let skor = 0;
+
+            if (cukupPanjang) {
+                skor++;
+            }
+
+            if (adaAngka) {
+                skor++;
+            }
+
+            if (adaSimbol) {
+                skor++;
+            }
+
+
+            bar1_H1101251053.className = "bar";
+            bar2_H1101251053.className = "bar";
+            bar3_H1101251053.className = "bar";
+
+
+            if (password.length === 0) {
+
+                strength_H1101251053.textContent =
+                    "belum ada password";
+
+            } else if (skor === 1) {
+
+                bar1_H1101251053.classList.add("active-weak");
+
+                strength_H1101251053.textContent =
+                    "password lemah";
+
+            } else if (skor === 2) {
+
+                bar1_H1101251053.classList.add("active-medium");
+                bar2_H1101251053.classList.add("active-medium");
+
+                strength_H1101251053.textContent =
+                    "password sedang";
+
+            } else {
+
+                bar1_H1101251053.classList.add("active-strong");
+                bar2_H1101251053.classList.add("active-strong");
+                bar3_H1101251053.classList.add("active-strong");
+
+                strength_H1101251053.textContent =
+                    "password kuat";
+            }
+
+        });
+
+
+        // tombol
+        lihat_H1101251053.addEventListener("click", function () {
+            if (password_H1101251053.type === "password") {
+                password_H1101251053.type = "text";
+                lihat_H1101251053.textContent = "Sembunyikan";
+            } else {
+                password_H1101251053.type = "password";
+                lihat_H1101251053.textContent = "Lihat";
+            }
+
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+    
+    
+    
+
